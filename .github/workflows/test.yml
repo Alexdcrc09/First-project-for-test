@@ -1,4 +1,4 @@
-name: test
+name: Run test
 
 # Run this workflow every time a new commit pushed to your repository
 on: push
@@ -20,6 +20,8 @@ jobs:
       # Runs the Super-Linter action
       - name: Run test
         uses: github/test@v3
+        run : yarn install
+        run : yarn test
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
